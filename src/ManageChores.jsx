@@ -6,10 +6,11 @@ function ManageChores() {
   // count는 현재의 상태 값이며, setCount는 상태 값을 업데이트하는 함수입니다.
 
     const actions = ["explore", "study", "rest", "make"];
+    const majors = ["bs", "cs", "cee", "mse"];
 
     const { gameState, setGameState } = useGameState();
 
-    const [isActionSelect, setIsActionSelect] = useState([false, false, false]);
+    const [isActionSelect, setIsActionSelect] = useState([false, false, false, false]);
 
     useEffect(() => {
         console.log("Action: ", gameState.action);
@@ -36,20 +37,68 @@ function ManageChores() {
     }
 
     return (
-        <div className='button-line' style={{alignSelf:"center"}}>
-            {actions.map
-                ((action, index) => (
-                    <button
-                        key={index}
-                        onClick={() => selectAction(index)}
-                        disabled={isActionSelect[index]}
-                        style={{margin: "0.5rem", width: "5rem"}}
-                    >
-                        {action}
+        <div>
+            <div className='button-line' style={{alignSelf:"center"}}>
+                {actions.map
+                    ((action, index) => (
+                        <button
+                            key={index}
+                            onClick={() => selectAction(index)}
+                            disabled={isActionSelect[index]}
+                            style={{margin: "0.5rem", width: "5rem"}}
+                        >
+                            {action}
 
-                    </button>
-            ))}
+                        </button>
+                ))}
+            </div>
+            <div>
+                {gameState.action === "explore" && <div>Explore</div>}
+                {gameState.action === "study" && 
+                <div>
+                    Study
+                    <div className='button-line' style={{alignSelf:"center"}}>
+                        {gameState.characters.map
+                            ((character, index) => (
+                                character.state !== "dead" && 
+                                <div>
+                                    <div>
+                                        {character.name}
+                                        {character.study !== "none" && <div>Studying</div>}
+                                    </div>
+                                    {
+                                        majors.map((major, mindex) => (
+                                            <button
+                                                className={
+                                                    character.study === major ?
+                                                    "small green" : "small lightgreen"
+                                                }
+                                                key={mindex}
+                                                onClick={() => {
+                                                    setGameState((prevState) => ({
+                                                        ...prevState,
+                                                        characters: prevState.characters.map((character, idx) =>
+                                                            idx === index ?
+                                                            { ...character, study: character.study === "none" ?
+                                                                majors[mindex] : "none"}
+                                                            : character
+                                                        )
+                                                    }));
+                                                }}
+                                            >
+                                                {major}
+                                            </button>
+                                        ))
+                                    }
+                                </div>
+                        ))}
+                    </div>
+                </div>}
+                {gameState.action === "rest" && <div>Rest</div>}
+                {gameState.action === "make" && <div>Make</div>}
+            </div>
         </div>
+        
     );
 }
 

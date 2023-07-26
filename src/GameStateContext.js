@@ -22,6 +22,12 @@ export function GameStateProvider({ children }) {
     "consequence": "Nothing happened.",
     "option": "none",
     "trade": null,
+    "major": {
+      "bs": 4,
+      "cs": 1,
+      "cee": 2,
+      "mse": 2,
+    }
   });
 
   return (

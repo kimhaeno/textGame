@@ -9,6 +9,7 @@
         "dfood": 0,
         "dwater": 0,
         "usemed": false,
+        "study": "none",
         "major": {
             "bs": 0,
             "cs": 0,
@@ -26,6 +27,7 @@
         "dfood": 0,
         "dwater": 0,
         "usemed": false,
+        "study": "none",
         "major": {
             "bs": 0,
             "cs": 0,
@@ -43,6 +45,7 @@
         "dfood": 0,
         "dwater": 0,
         "usemed": false,
+        "study": "none",
         "major": {
             "bs": 0,
             "cs": 0,
@@ -60,6 +63,7 @@
         "dfood": 0,
         "dwater": 0,
         "usemed": false,
+        "study": "none",
         "major": {
             "bs": 0,
             "cs": 0,

@@ -130,6 +130,7 @@ function ManageSupply() {
                     
                     : <p>Status: {character.state}</p>
                   }
+                  <p>Majors: BS {character.major.bs} CS {character.major.cs} CEE {character.major.cee} MSE {character.major.mse}</p>
                   <p> Water: {character.water} Food: {character.food}</p>
                   <p>Give {character.dwater} water and {character.dfood} food</p>
                   <div className='button-line' style={{justifyContent:"center", alignItems: "center"}}>

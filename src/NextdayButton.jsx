@@ -120,6 +120,62 @@ function NextDayButton () {
         return true;
     };
 
+    const study = () => {
+        var news = "";
+        setGameState((prevState) => ({
+            ...prevState,
+            characters: prevState.characters.map((character, idx) => {
+
+                console.log(character.name, character.study);
+
+                if(character.state === "dead")
+                    return character;
+                if(character.study === "bs"){
+                    news += character.name + " studied " + character.study + ". ";
+                    return {
+                        ...character,
+                        major: {
+                            ...character.major,
+                            bs: character.major.bs + 1,
+                        }
+                    }
+                }  
+                if(character.study === "cs"){
+                    news += character.name + " studied " + character.study + ". ";
+                    return {
+                        ...character,
+                        major: {
+                            ...character.major,
+                            cs: character.major.cs + 1,
+                        }
+                    }
+                }
+                if(character.study === "cee"){
+                    news += character.name + " studied " + character.study + ". ";
+                    return {
+                        ...character,
+                        major: {
+                            ...character.major,
+                            cee: character.major.cee + 1,
+                        }
+                    }
+                }
+                if(character.study === "mse"){
+                    news += character.name + " studied " + character.study + ". ";
+                    return {
+                        ...character,
+                        major: {
+                            ...character.major,
+                            mse: character.major.mse + 1,
+                        }
+                    }
+                }
+                return character;
+            }),
+            news: "You studied." + news,
+        }));
+    };
+
 
 
     const nextDay = () => {
@@ -158,7 +214,8 @@ function NextDayButton () {
         }
 
         if(gameState.action === "study"){
-            gameState.news = "You studied."
+
+            study();
         }
 
         if(gameState.action === "rest"){
@@ -188,6 +245,7 @@ function NextDayButton () {
                         ...character,
                         state: "dead"
                     }
+
                 }
 
                 if(character.state === "sick"){
@@ -196,13 +254,23 @@ function NextDayButton () {
                             ...character,
                             state: "healthy",
                             usemed: false,
+                            water: water,
+                            food: food,
+                            dwater: 0,
+                            dfood: 0,
+                            study: "none",
                         }
                     }
 
                     if(Math.random() < 0.2){
                         return {
                             ...character,
-                            state: "healthy"
+                            state: "healthy",
+                            water: water,
+                            food: food,
+                            dwater: 0,
+                            dfood: 0,
+                            study: "none",
                         }
                     }
 
@@ -222,6 +290,7 @@ function NextDayButton () {
                     food: food,
                     dwater: 0,
                     dfood: 0,
+                    study: "none",
                 };
             }),
             water: prevState.water - prevState.totaldwater + newWater,
