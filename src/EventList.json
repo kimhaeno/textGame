@@ -1,5 +1,6 @@
 [
     {
+      "evid": 0,
       "name": "Peaceful day",
       "description": "Nothing Happened Today!",
       "options": [
@@ -20,6 +21,7 @@
       ]
     },
     {
+      "evid": 1,
       "name": "Breach in",
       "description": "Infected have breached the walls",
       "options": [
@@ -44,6 +46,7 @@
       ]
     },
     {
+      "evid": 2,
       "name": "Traders",
       "description": "Bunch of traders have arrived. Would you like to trade?",
       "options": [

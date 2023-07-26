@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGameState } from './GameStateContext';
 import Event from './Event';
+import Effect from './Effect';
 
 function News() {
 
@@ -9,9 +10,16 @@ function News() {
 
     return (
         <div className="News">
-            <h1>News</h1>
-            <h3>{gameState.news}</h3>
-            <h2><Event/></h2>
+            <div className='text-box'>
+                <h1>News</h1>
+                <h3>{gameState.news}</h3>
+            </div>
+
+            <div className='text-box'><Effect/></div>
+            
+            <div><Event/></div>
+
+            
         </div>
     );
 }

@@ -9,68 +9,149 @@ function ManageSupply() {
     const { gameState, setGameState } = useGameState();
 
     const addWater = (idx) => {
-        if (gameState.water > gameState.dwaters[0] + gameState.dwaters[1]) {
+      if (gameState.water > gameState.totaldwater) {
+        setGameState((prevState) => ({
+          ...prevState,
+          characters: prevState.characters.map((character, index) =>
+            index === idx ? { ...character, dwater: character.dwater + 1 } : character
+          ),
+          totaldwater: prevState.totaldwater + 1
+        }));
+      }
+
+      console.log(gameState.characters[idx].dwater, gameState.characters[idx].dfood)
+    };
+    
+    const addFood = (idx) => {
+      if (gameState.food > gameState.totaldfood) {
+        setGameState((prevState) => ({
+          ...prevState,
+          characters: prevState.characters.map((character, index) =>
+            index === idx ? { ...character, dfood: character.dfood + 1 } : character
+          ),
+          totaldfood: prevState.totaldfood + 1
+        }));
+      }
+    };
+    
+    const subWater = (idx) => {
+      if (gameState.characters[idx].dwater > 0) {
+        setGameState((prevState) => ({
+          ...prevState,
+          characters: prevState.characters.map((character, index) =>
+            index === idx ? { ...character, dwater: character.dwater - 1 } : character
+          ),
+          totaldwater: prevState.totaldwater - 1
+        }));
+      }
+    };
+    
+    const subFood = (idx) => {
+      if (gameState.characters[idx].dfood > 0) {
+        setGameState((prevState) => ({
+          ...prevState,
+          characters: prevState.characters.map((character, index) =>
+            index === idx ? { ...character, dfood: character.dfood - 1 } : character
+          ),
+          totaldfood: prevState.totaldfood - 1
+        }));
+      }
+    };
+
+    const cure = (idx) => {
+
+      if(gameState.characters[idx].usemed === false){
+        if (gameState.medkit > 0) {
           setGameState((prevState) => ({
             ...prevState,
-            dwaters: prevState.dwaters.map((water, index) => (index === idx ? water + 1 : water)),
+            characters: prevState.characters.map((character, index) =>
+              index === idx ? { ...character, usemed: true } : character
+            ),
+            medkit: prevState.medkit - 1
           }));
         }
-      };
+        else{
+          window.alert("You don't have any first-aid kit.");
+        }
+      }
+      else{
+        setGameState((prevState) => ({
+          ...prevState,
+          characters: prevState.characters.map((character, index) =>
+            index === idx ? { ...character, usemed: false } : character
+          ),
+          medkit: prevState.medkit + 1
+        }));
+      }
+
+
       
-      const addFood = (idx) => {
-        if (gameState.food > gameState.dfoods[0] + gameState.dfoods[1]) {
-          setGameState((prevState) => ({
-            ...prevState,
-            dfoods: prevState.dfoods.map((food, index) => (index === idx ? food + 1 : food)),
-          }));
-        }
-      };
       
-      const subWater = (idx) => {
-        if (gameState.dwaters[idx] > 0) {
-          setGameState((prevState) => ({
-            ...prevState,
-            dwaters: prevState.dwaters.map((water, index) => (index === idx ? water - 1 : water)),
-          }));
-        }
-      };
-      
-      const subFood = (idx) => {
-        if (gameState.dfoods[idx] > 0) {
-          setGameState((prevState) => ({
-            ...prevState,
-            dfoods: prevState.dfoods.map((food, index) => (index === idx ? food - 1 : food)),
-          }));
-        }
-      };
+    };
+    
+    
       
       
     return (
-        <div style={{alignSelf:"center"}}>
-            <h1>Game: Day {gameState.day}</h1>
-            <p>Currently left Water: {gameState.water} Food: {gameState.food}</p>
-            <p>[Character1] Water: {gameState.waters[0]} Food: {gameState.foods[0]}</p>
-            <p>Give {gameState.dwaters[0]} water and {gameState.dfoods[0]} food</p>
-            <p>[Character2] Water: {gameState.waters[1]} Food: {gameState.foods[1]}</p>
-            <p>Give {gameState.dwaters[1]} water and {gameState.dfoods[1]} food</p>
-            <p>Click the buttons below to give water and food to the characters</p>
+        <div style={{justifyContent:"center"}}>
+          <h1>Game: Day {gameState.day}</h1>
+          <p>Currently left Water: {gameState.water} Food: {gameState.food} First-aid kit: {gameState.medkit}</p>
+
+          <div style={{display: "flex ", justifyContent:"space-between", flexWrap:"wrap"}}>
+            {
+              gameState.characters.map((character, index) => (
+
+                character.state === "dead" ?
+
+                <div key={character.id} className="char-box gray">
+                  <img src={character.image} alt={character.name} className='round-photo dead'/>
+                  <h3>[Character: {character.name}]</h3>
+                  <h2 style={{color: "red"}}>Status: {character.state}</h2>
+                </div>
 
 
-            <div>
-                <p>For player 1:</p>
-                <button onClick={() => addWater(0)}>+ water1</button>
-                <button onClick={() => subWater(0)}>- water1</button>
-                <button onClick={() => addFood(0)}>+ food1</button>
-                <button onClick={() => subFood(0)}>- food1</button>
-            </div>
+                :<div key={character.id} className="char-box">
+
+                  
+                  <img src={character.image} alt={character.name} className='round-photo'/>
+                  <h3>[Character: {character.name}]</h3>
+                  {
+                    character.state === "sick" ?
+                    <>
+                      <p style={{color: "red"}}>Status: {character.state}</p>
+                      <button className= {
+                        character.usemed === false ? 'small green' : 'small lightgreen'
+                      }
+                        onClick={() => cure(index)
+                        }>
+                          use first-aid kit
+                      </button>
+                    </>
+                    
+                    : <p>Status: {character.state}</p>
+                  }
+                  <p> Water: {character.water} Food: {character.food}</p>
+                  <p>Give {character.dwater} water and {character.dfood} food</p>
+                  <div className='button-line' style={{justifyContent:"center", alignItems: "center"}}>
+                      <button className='small blue' onClick={() => addWater(index)}>+</button>
+                      <p>WATER</p>
+                      <button className='small red' onClick={() => subWater(index)}>-</button>
+                  </div>
+                  <div className='button-line' style={{justifyContent:"center", alignItems: "center"}}>
+                      <button className='small blue'  onClick={() => addFood(index)}>+</button>
+                      <p>FOOD</p>
+                      <button className='small red' onClick={() => subFood(index)}>-</button>
+                  </div>
+                </div>
+              ))
+            }
+
             
-            <div>
-                <p>For player 2:</p>
-                <button onClick={() => addWater(1)}>+ water2</button>
-                <button onClick={() => subWater(1)}>- water2</button>
-                <button onClick={() => addFood(1)}>+ food2</button>
-                <button onClick={() => subFood(1)}>- food2</button>
-            </div>
+            <p>Click the buttons to give water and food to the characters</p>
+          </div>
+            
+
+            
         </div>
     );
 }

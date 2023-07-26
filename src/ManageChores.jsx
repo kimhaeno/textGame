@@ -5,7 +5,7 @@ function ManageChores() {
   // useState 훅을 사용하여 count 상태와 setCount 함수를 정의합니다.
   // count는 현재의 상태 값이며, setCount는 상태 값을 업데이트하는 함수입니다.
 
-    const actions = ["explore", "study", "rest"];
+    const actions = ["explore", "study", "rest", "make"];
 
     const { gameState, setGameState } = useGameState();
 
@@ -36,13 +36,14 @@ function ManageChores() {
     }
 
     return (
-        <div style={{alignSelf:"center"}}>
+        <div className='button-line' style={{alignSelf:"center"}}>
             {actions.map
                 ((action, index) => (
                     <button
                         key={index}
                         onClick={() => selectAction(index)}
                         disabled={isActionSelect[index]}
+                        style={{margin: "0.5rem", width: "5rem"}}
                     >
                         {action}
 

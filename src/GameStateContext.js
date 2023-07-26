@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import events from './EventList.json';
+import characters from './character.json'
 
 const GameStateContext = createContext();
 
@@ -9,19 +9,19 @@ export function useGameState() {
 
 export function GameStateProvider({ children }) {
   const [gameState, setGameState] = useState({
-    "name1": "character1",
-    "name2": "character2",
-    "waters": [10, 10],
-    "dwaters": [0, 0],
-    "foods": [10, 10],
-    "dfoods": [0, 0],
-
+    "characters": characters,
     "action": "none",
     "water": 10,
     "food": 10,
+    "medkit": 1,
+    "totaldfood": 0,
+    "totaldwater": 0,
     "day": 1,
     "news": "Welcome to the game!",
-    "event": events[0],
+    "eventIndex": 0,
+    "consequence": "Nothing happened.",
+    "option": "none",
+    "trade": null,
   });
 
   return (
