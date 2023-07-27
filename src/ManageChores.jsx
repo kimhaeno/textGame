@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useGameState } from './GameStateContext';
+import MakeGoal from './MakeGoal.jsx';
 
 function ManageChores() {
   // useState 훅을 사용하여 count 상태와 setCount 함수를 정의합니다.
@@ -56,15 +57,15 @@ function ManageChores() {
                 {gameState.action === "explore" && <div>Explore</div>}
                 {gameState.action === "study" && 
                 <div>
-                    Study
+                    <h2>Study</h2>
                     <div className='button-line' style={{alignSelf:"center"}}>
                         {gameState.characters.map
                             ((character, index) => (
                                 character.state !== "dead" && 
-                                <div>
+                                <div key={index} className='char-box'>
                                     <div>
                                         {character.name}
-                                        {character.study !== "none" && <div>Studying</div>}
+                                        {character.study === "none" ? <div>Rest</div> : <div>Study {character.study}</div>}
                                     </div>
                                     {
                                         majors.map((major, mindex) => (
@@ -94,8 +95,8 @@ function ManageChores() {
                         ))}
                     </div>
                 </div>}
-                {gameState.action === "rest" && <div>Rest</div>}
-                {gameState.action === "make" && <div>Make</div>}
+                {gameState.action === "rest" && <div>Rest: Consumes less resources</div>}
+                {gameState.action === "make" && <div><MakeGoal /></div>}
             </div>
         </div>
         
