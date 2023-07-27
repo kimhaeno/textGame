@@ -12,7 +12,6 @@
 ### 물건 챙기기
 
 게임 플레이 화면
-![image](https://github.com/kimhaeno/textGame/assets/61447161/de6888bb-5c53-41a5-82f5-7aff9b9c3427)
 
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/e5012f12-f49a-4939-ae79-eee4406d59eb" height="500" /> 
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/de6888bb-5c53-41a5-82f5-7aff9b9c3427" height="500" />
