@@ -15,7 +15,6 @@
 
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/e5012f12-f49a-4939-ae79-eee4406d59eb" height="500" /> 
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/de6888bb-5c53-41a5-82f5-7aff9b9c3427" height="500" />
-<img src="https://github.com/kimhaeno/textGame/assets/61447161/2a290c67-b21c-4351-a86f-acae6a4f2f6e" height="500" />
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/9df5f586-be41-4d6e-91d7-b2d172ee9df0" height="500" />
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/c3685b46-fc66-434d-a390-d46a5987858c" height="500" />
 
