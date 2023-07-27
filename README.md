@@ -7,6 +7,9 @@
 - 김현호
 - 김태형
 
+npm install
+npm start
+로 실행하세요.
 ## 기능 소개
 
 ### 물건 챙기기
@@ -17,6 +20,7 @@
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/de6888bb-5c53-41a5-82f5-7aff9b9c3427" height="500" />
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/9df5f586-be41-4d6e-91d7-b2d172ee9df0" height="500" />
 <img src="https://github.com/kimhaeno/textGame/assets/61447161/c3685b46-fc66-434d-a390-d46a5987858c" height="500" />
+<img src="https://github.com/kimhaeno/textGame/assets/61447161/493e0138-99e3-424d-946d-b6acd0778fdf" height="500" />
 
 - 생존에 필요한 물건들을 챙기는 단계입니다. 식량, 물, 전공 책 등 다양한 물건들을 챙기고 가방에 담으세요. 60초 안에 안전 구역에 있지 않으면 사망합니다!
 - 챙길 수 있는 물건은 하얀색 테두리로 되어있고, 물건 가까이 가면 테두리가 초록색으로 변하며 손이 꽉차면 빨간색으로 테두리가 변합니다.
