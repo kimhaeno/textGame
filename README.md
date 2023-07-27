@@ -35,11 +35,10 @@
 
 ### 게임 진행화면
 
-|넙죽이가 없는 경우| 넙죽이가 있는 경우 | 목욕 중인 넙죽이 | 목욕 후 넙죽이 | 4분 경과 후 |
-|--|--|--|--|--|
-|<img src="https://github.com/tylerkim1/NubjukiGO/assets/89760088/266880db-cc77-4001-bb93-fb4851d0b281" width="200" />| <img src="https://github.com/tylerkim1/NubjukiGO/assets/89760088/a9fe9b78-15a0-41b5-9713-ae681b9dc08f" width="200" />| <img src="https://github.com/tylerkim1/NubjukiGO/assets/89760088/080b3b90-8b4b-4145-8a20-f0c222303db7" width="200" /> | <img src="https://github.com/tylerkim1/NubjukiGO/assets/89760088/6fd6ea4e-a3a6-4b19-8388-1a4febab6184" width="200" /> | <img src="https://github.com/tylerkim1/NubjukiGO/assets/89760088/c202876f-3f1c-4629-8b38-ca519aac5a8b" width="200" /> |
 
-- 잡은 넙죽이들을 키울 수 있어요!
-- 시간이 지날수록 HP가 줄어들어요 (현재는 1분에 5 퍼센트 포인트씩)
-- 밥먹기, 잠자기, 산책하기, 목욕하기 액션을 통해 HP를 높일 수 있어요.
-
+- 4명의 캐릭터로 시작합니다.
+- 밥주기?: 매일매일 각 캐릭터에게 식량, 물을 주어야 하고 필요에 따라 응급처치키트로 아픈 캐릭터를 치료할 수 있습니다.
+- 탐험: 학교 내에서 탐험으로 아이템을 가져올 곳을 골라서 탐험합니다. 일정 확률로 아이템들을 얻을 수 있습니다.
+- 공부: 현재 가지고 있는 전공책을 바탕으로 4개의 분야 중 하나를 골라 공부할 수 있습니다. 가지고 있는 책의 개수에 따라 공부할 수 있는 양이 달라집니다.
+      - 분야: 전산, 기계, 항공, 생명
+- 이벤트: 매일매일 랜덤한 이벤트가 발생합니다. 아이템을 얻을 수도, 잃을 수도 있습니다!
