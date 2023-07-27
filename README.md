@@ -12,8 +12,10 @@
 ### 물건 챙기기
 
 게임 플레이 화면
+![image](https://github.com/kimhaeno/textGame/assets/61447161/de6888bb-5c53-41a5-82f5-7aff9b9c3427)
 
-<img src="https://github.com/kimhaeno/textGame/assets/61447161/e5012f12-f49a-4939-ae79-eee4406d59eb" height="500" /> <img src="https://github.com/tylerkim1/NubjukiGO/assets/89760088/d73b5eea-b41e-4ab8-abbc-605c77547733" width="200" />
+<img src="https://github.com/kimhaeno/textGame/assets/61447161/e5012f12-f49a-4939-ae79-eee4406d59eb" height="500" /> 
+<img src="https://github.com/kimhaeno/textGame/assets/61447161/de6888bb-5c53-41a5-82f5-7aff9b9c3427" height="500" />
 
 - 생존에 필요한 물건들을 챙기는 단계입니다. 식량, 물, 전공 책 등 다양한 물건들을 챙기고 가방에 담으세요. 60초 안에 안전 구역에 있지 않으면 사망합니다!
 - 챙길 수 있는 물건은 하얀색 테두리로 되어있고, 물건 가까이 가면 테두리가 초록색으로 변하며 손이 꽉차면 빨간색으로 테두리가 변합니다.
